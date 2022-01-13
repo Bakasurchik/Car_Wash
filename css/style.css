@@ -1,0 +1,9 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.queueNote {
+    display: flex;
+    flex-direction: row;
+}

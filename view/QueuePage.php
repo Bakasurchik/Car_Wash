@@ -6,13 +6,15 @@
         <body>
             <header>
                 <h1>
-                    Главная    
+                    Очередь на автомойку    
                 </h1>        
             </header>
             <?php include '/dev/Car_Wash/view/Header.php'?>
 
             <main>
-                <a href="/view/QueuePage.php"><button>Записаться</button></a>
+                <div class="queueNote">
+                    <p>Number</p>
+                </div>
             </main>
 
             <footer>
