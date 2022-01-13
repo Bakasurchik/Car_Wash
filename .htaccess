@@ -1,0 +1,4 @@
+AuthName "Protected area, need authorization"
+AuthType Basic
+AuthUserFile /home/m/megalab/bprof.megalab.beget.tech/public_html/.htpasswd
+require valid-user
