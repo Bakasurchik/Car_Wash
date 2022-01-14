@@ -1,9 +1,87 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;
+    
 }
 
 .queueNote {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 40px;
+}
+header {
+    background-color: black;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+}
+.nav {
+    width: 100%;
+    height: 50px;
+    background-color: #FFAA00;
+}
+
+ul {
+    color: black;
+    font-size: 20px;
+    padding-left: 0px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 7px;
+}
+.QP {
+    position: relative;
+    width: 50%;
+}
+.QP img {
+    width: 200%;
+    height: auto;
+}
+.QP button {
+    position: absolute;
+  top: 69.5%;
+  left: 95.5%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  color: #FFAA00;
+  font-size: 40px;
+  padding: 3px 7px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.QP button:hover {
+    background-color: #353535;
+}
+.number {
+    position: relative;
+    width: 100%;
+    font-size: 100px;
+    margin-top: 200px;
+}
+.queueNote p {
+    margin-block: 0;
+}
+
+.register {
+    position: absolute;
+    right: 200px;
+}
+
+.login {
+    position: absolute;
+    right: 100px;
+    border-left: 1px rgb(100, 99, 104) solid;
+    padding-left: 25px;
 }

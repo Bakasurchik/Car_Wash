@@ -6,16 +6,12 @@
         <body>
             <header>
                 <h1>
-                    Бронирование очереди на автомойку    
+                    Для продолжения нужно авторизоваться  
                 </h1>        
             </header>
             <?php require_once dirname(__DIR__).'/view/Header.php'?>
 
             <main>
-                <div class="QP">
-                    <img src="/img/bmw.jpg">
-                    <a href="/view/QueuePage.php"><button>Записаться</button></a>
-                </div>
                 
             </main>
 
