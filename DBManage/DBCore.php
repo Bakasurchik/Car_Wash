@@ -7,15 +7,18 @@ class DBConnection
         $this->_user = $user;
         $this->_password = $password;
         $this->_database = $database;
-        $this->_dbConnect = mysqli_connect($host,$user,$password,$database);
-        if($this->_dbConnect)
+        $dbconnect = mysqli_connect($host,$user,$password,$database);
+        if($dbconnect)
+        {
+            $this->_dbConnect = $dbconnect;
             mysqli_set_charset($this->_dbConnect,"utf8");
+        }
         else
             $this->connectionErrorHandling();
     }
     static public function tryDefaultConnection()
     {
-        return new DBConnection("localhost","root","1234","megalab_base");
+        return new DBConnection("megalab.beget.tech","megalab_base","pAssword1!","megalab_base");
     } 
     public function isConnectionSuccessful()
     {
