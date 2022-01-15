@@ -14,11 +14,11 @@
                 <form class="loginForm" method="post" action="/controller/LoginController.php">
                     <br>
                     <label>Login</label>
-                    <input type="text" name="loginText">
+                    <input type="text" name="login">
                     <label>Password</label>
                     <input type="password" name="password">
                     <br>
-                    <input type="submit" name="login" value="Login"> <button> <a href="/static/MainPage.php">Back</a></button>
+                    <input type="submit" name="loginButton" value="Login"> <button> <a href="/view/MainPage.php">Back</a></button>
                     <br>
                     <a href="/view/passrestoring.php">Forgot the password</a>
                 </form>

@@ -19,7 +19,7 @@ class User
         $email = "";
         $phone_num = "";
         $dbConnection = DBConnection::tryDefaultConnection();
-        $result = $dbConnection->select("*","car_wash","authdata","(authdata.login LIKE '{$login}')");
+        $result = $dbConnection->select("*","authdata","(authdata.login LIKE '{$login}')");
         if(!$result)
             return null;
         $array = mysqli_fetch_array($result);
@@ -27,6 +27,7 @@ class User
         {
             while ($row = $array) 
             {
+                $_id = $row['id'];
                 $password_hash = $row['password_hash'];
                 $email = $row['email'];
                 $phone_num = $row['phone_num'];
@@ -56,6 +57,7 @@ class User
         return $this->_phone_num;
     }
 
+    private int $_id = 0;
     private string $_login="";
     private string $_password_hash="";
     private string $_email = "";

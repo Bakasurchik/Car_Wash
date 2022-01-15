@@ -1,6 +1,6 @@
 <?php
-    require_once dirname(__DIR__).'DBManage/DBCore.php';
-    require_once dirname(__DIR__).'model/AuthModel.php';
+    require_once dirname(__DIR__).'/DBManage/DBCore.php';
+    require_once dirname(__DIR__).'/model/AuthModel.php';
     $dbConnection = dbConnection::tryDefaultConnection();
         if ( isset( $_POST['login'] ) ) 
         { 
@@ -10,8 +10,7 @@
         
            $user = User::getUserFromDB($username);
 
-            $is_correct_password = password_verify($password,$user->password_hash());
-            if($user && $is_correct_password)
+            if($user && $is_correct_password = password_verify($password,$user->password_hash()))
             {
                 session_start();
                 $_SESSION['login'] = $user->login();

@@ -26,6 +26,7 @@
                     Exit();
                 }
                 header("Location: /view/register.php?answer_val=0&answer_text='Something went wrong, try again later.'");
+                error_log("Failed to add new user");
                 Exit();
             }
             Exit();
