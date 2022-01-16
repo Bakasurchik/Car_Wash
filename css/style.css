@@ -143,3 +143,8 @@ button > a {
 input[type='submit'] {
     margin-right: 10px;
 }
+
+.queueNode {
+    display: flex;
+    flex-direction: row;
+}

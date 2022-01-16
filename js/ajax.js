@@ -12,7 +12,14 @@ function sendAjax(destination)
     if (this.status >= 200 && this.status < 400) 
     {
       // Success!
-       var resp = this.response;
+      debugger;
+       let resp = this.response;
+       let respArray = JSON.parse(resp);
+       if(respArray != null)
+       {
+        addNode(respArray['_queueOrderIndex'],respArray['_user_login'],respArray['_id']);
+        queueSizeInc();
+       }
        return resp.toString();
     } 
     else 
@@ -26,4 +33,34 @@ function sendAjax(destination)
     
   };
   request.send();
+}
+
+
+function addNode(queueInd,accName,id)
+{
+  debugger;
+  let mainCont = document.getElementById('queue_main_cont');
+  let newNode = document.createElement('div');
+  newNode.className = 'queueNode';
+
+  let queueIndP = document.createElement('p');
+  queueIndP.textContent = "Номер в очереди: " + queueInd;
+  
+  let accNameP = document.createElement('p');
+  accNameP.textContent = "Имя аккаунта: " + accName;
+  
+  let idP = document.createElement('p');
+  idP.textContent = "Уникальный Id: " + id;
+  
+  newNode.appendChild(queueIndP);
+  newNode.appendChild(accNameP);
+  newNode.appendChild(idP);
+  mainCont.appendChild(newNode);
+}
+
+function queueSizeInc()
+{
+   let qSize = (document.getElementById('queue_size').textContent);
+   qSize++;
+   document.getElementById('queue_size').textContent = qSize.toString();
 }

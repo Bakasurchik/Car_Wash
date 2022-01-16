@@ -13,7 +13,7 @@
             </header>
             <?php require_once dirname(__DIR__).'/view/Header.php'?>
             
-            <main>
+            <main id="queue_main_cont">
                 <?php include dirname(__DIR__).'/controller/GetQueueListController.php' ?>
             </main>
             <button onclick="addToQueue(`<?php echo($_SESSION['login']); ?>`)">Записаться</button>

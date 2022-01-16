@@ -37,22 +37,30 @@ class DBConnection
     public function addToTable(string $table, array $values)
     {
         $fields = $this->isConnectionSuccessful() ? $this->getTableColumns($table) : false;
-        if(!$fields)
-            return error_log("failed to get DB columns");
+        if(!$fields || !$values || count($values) == 0)
+         {
+             return false;
+             error_log("failed to get DB columns");
+         }
+             
         $fieldsStr = "(";
         mysqli_fetch_array($fields);//убираем id
         while($row = mysqli_fetch_array($fields))
         {
             $fieldsStr .= "{$row['Field']},";
         }
+        $fieldsStr = substr_replace($fieldsStr ,"", -1);
         $fieldsStr .= ")";
         $valuesStr = "(";
         foreach($values as &$val)
         {
             $valuesStr .= "'{$val}',";
         }
+        $valuesStr = substr_replace($valuesStr ,"", -1);
         $valuesStr .= ")";
+        $strrr = "INSERT INTO {$this->_database}.{$table} {$fieldsStr} VALUES {$valuesStr};";
         $result = $this->query("INSERT INTO {$this->_database}.{$table} {$fieldsStr} VALUES {$valuesStr};");
+        return $result;
     }
 
 

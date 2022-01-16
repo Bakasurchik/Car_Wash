@@ -11,14 +11,21 @@
             $queue->fillFromDb("queue_data");
             $queue_order_index = $queue->queueSize();
             $queue_note = new QueueNote(0,$queue_order_index,$user_login);
-            $queue->addUserToQueue($queue_note);
-                $queue_note_str =
-                    `
-                        <div class="queueNote">
-                            <p class="number">{$queue_note->queueOrderIndex()}<br></p>
-                            <p>в очереди</p>
-                        </div>
-                    `; 
-            echo($queue_note_str);
+            $result = $queue->addUserToQueue($queue_note);
+            if($result)
+            {
+                header('Content-type: application/json');
+                $queue_note_str = json_encode($queue_note);
+                echo($queue_note_str);
+            }
+            else
+                echo(null);
+                    //'
+                   // `
+                   //     <div class="queueNote">
+                   //         <p class="number">{$queue_note->queueOrderIndex()}<br></p>
+                   //         <p>в очереди</p>
+                   //     </div>
+                   // `;
         }
      ?>

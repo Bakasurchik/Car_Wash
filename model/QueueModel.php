@@ -30,9 +30,9 @@ class QueueNote
     }
 
 
-    private int $_id;
-    private int $_queueOrderIndex;
-    private string $_user_login;
+    public int $_id;
+    public int $_queueOrderIndex;
+    public string $_user_login;
 }
 
 class Queue
@@ -50,8 +50,10 @@ class Queue
 
     public function addUserToQueue(QueueNote $item)
     {
-        array_push($this->_queue,$item);
-        $this->_addUserToDB($item);
+        $result =  $this->_addUserToDB($item);
+        if($result)
+            array_push($this->_queue,$item);
+        return $result;
     }
 
     public function removeUserFromQueue()
@@ -87,7 +89,7 @@ class Queue
 
     private function _addUserToDB(QueueNote $item)
     {
-        $this->_dbConnect->addToTable("queue_data",$item->toArray());
+        return $this->_dbConnect->addToTable("queue_data",$item->toArray());
     }
 
 
