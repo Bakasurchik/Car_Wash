@@ -12,7 +12,6 @@ function sendAjax(destination)
     if (this.status >= 200 && this.status < 400) 
     {
       // Success!
-      debugger;
        var resp = this.response;
        return resp.toString();
     } 
@@ -26,7 +25,5 @@ function sendAjax(destination)
   {
     
   };
-
   request.send();
-
 }
