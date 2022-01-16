@@ -30,7 +30,7 @@ class DBConnection
 
     public function getTableColumns(string $table)
     {
-        return $this->query("SHOW COLUMNS FROM {$table}");
+        return $this->query("SHOW COLUMNS FROM {$table};");
     }
 
 
@@ -40,35 +40,40 @@ class DBConnection
         if(!$fields)
             return error_log("failed to get DB columns");
         $fieldsStr = "(";
-        foreach(mysqli_fetch_array($fields) as &$val)
+        mysqli_fetch_array($fields);//убираем id
+        while($row = mysqli_fetch_array($fields))
         {
-            $fieldsStr += ",{$val['field']}";
+            $fieldsStr .= "{$row['Field']},";
         }
-        $fieldsStr += ")";
+        $fieldsStr .= ")";
         $valuesStr = "(";
         foreach($values as &$val)
         {
-            $valuesStr += ",'{$val}'";
+            $valuesStr .= "'{$val}',";
         }
-        $valuesStr += ")";
-        $values = 
-        $this->query("INSERT INTO {$this->_database}.{$table} {$fieldsStr} VALUES {$valuesStr};");
+        $valuesStr .= ")";
+        $result = $this->query("INSERT INTO {$this->_database}.{$table} {$fieldsStr} VALUES {$valuesStr};");
     }
 
 
-    public function selectAllFromTable(string $database,string $tableName)
+    public function selectAllFromTable(string $tableName)
     {
         return $this->select("*",$tableName);
     }
 
-    public function select(string $selector,string $tableName, string $condition = "")
+    
+
+    public function select(string $selector,string $tableName, string $condition = "", string $orderBy = "")
     {
-        $queryStr ="";
-        if($condition == "")
-            $queryStr ="SELECT {$selector} FROM {$this->_database}.{$tableName}";
-        else
-            $queryStr =  "SELECT {$selector} FROM {$this->_database}.{$tableName} WHERE {$condition}";
-         return $this->query($queryStr);
+        $queryStr = "SELECT {$selector} FROM {$this->_database}.{$tableName}";
+        if($condition != "")
+            $queryStr .= " WHERE {$condition}";
+        if($orderBy != "")
+        {
+            $queryStr .= " ORDER BY {$orderBy}";
+        }
+        $queryStr .= ";";
+        return $this->query($queryStr);
     }
 
     public function query(string $query)

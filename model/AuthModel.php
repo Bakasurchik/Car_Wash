@@ -22,16 +22,12 @@ class User
         $result = $dbConnection->select("*","authdata","(authdata.login LIKE '{$login}')");
         if(!$result)
             return null;
-        $array = mysqli_fetch_array($result);
-        if(count($array))
+        $row = mysqli_fetch_array($result);
+        if($row && count($row))
         {
-            while ($row = $array) 
-            {
-                $_id = $row['id'];
-                $password_hash = $row['password_hash'];
-                $email = $row['email'];
-                $phone_num = $row['phone_num'];
-            }
+            $password_hash = $row['password_hash'];
+            $email = $row['email'];
+            $phone_num = $row['phone_num'];
             return new User($login,$password_hash,$email,$phone_num);
         }
         else
@@ -57,7 +53,6 @@ class User
         return $this->_phone_num;
     }
 
-    private int $_id = 0;
     private string $_login="";
     private string $_password_hash="";
     private string $_email = "";

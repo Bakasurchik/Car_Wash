@@ -29,7 +29,6 @@
                 error_log("Failed to add new user");
                 Exit();
             }
-            Exit();
         }
-
+?>
     

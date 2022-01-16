@@ -2,19 +2,37 @@
 require_once dirname(__DIR__).'/DBManage/DBCore.php';
 class QueueNote
 {
-    public function __construct(int $ind,int $userId)
+    public function __construct(int $id,int $ind,string $user_login)
     {
-        $this->_queueNoteIndex = $ind;
-        $this->_userId = $userId;
+        $this->_id = $id;
+        $this->_queueOrderIndex = $ind;
+        $this->_user_login = $user_login;
     }
 
     public function toArray()
     {
-        return array($this->_queueNoteIndex,$this->_userId);
+        return array($this->_queueOrderIndex,$this->_user_login);
     }
 
-    private int $_queueNoteIndex;
-    private int $_userId;
+    public function id()
+    {
+        return $this->_id;
+    }
+
+    public function queueOrderIndex()
+    {
+        return $this->_queueOrderIndex;
+    }
+
+    public function user_login()
+    {
+        return $this->_user_login;
+    }
+
+
+    private int $_id;
+    private int $_queueOrderIndex;
+    private string $_user_login;
 }
 
 class Queue
@@ -25,36 +43,53 @@ class Queue
         $this->_dbConnect = DBConnection::tryDefaultConnection();
     }
 
+    public function addUserToArrayOnly(QueueNote $item)
+    {
+        array_push($this->_queue,$item);
+    }
+
     public function addUserToQueue(QueueNote $item)
     {
         array_push($this->_queue,$item);
         $this->_addUserToDB($item);
     }
 
+    public function removeUserFromQueue()
+    {
+
+    }
+
+    public function getQueueNoteByArrayIndex(int $index)
+    {
+        return $this->_queue[$index];
+    }
+
+    public function queueSize()
+    {
+        return count($this->_queue);
+    }
+
     public function fillFromDb(string $table)
     {
-        $result = $this->_dbConnect->select("*","queue_data");
+        $this->_queue = array();
+        $result = $this->_dbConnect->select("*",$table,"","queue_order_index");
         if(!$result)
             return false;
-        $array = mysqli_fetch_array($result);
-        if(count($array))
+        //$array = mysqli_fetch_array($result);
+        while($row = mysqli_fetch_array($result))
         {
-            foreach($array as &$row) 
-            {
-                $id = $row['id'];
-                $password_hash = $row['password_hash'];
-                $email = $row['email'];
-                $phone_num = $row['phone_num'];
-            }
+            $id = (int)$row['id'];
+            $queue_order_index = (int)$row['queue_order_index'];
+            $user_login = $row['user_login'];
+            $this->addUserToArrayOnly(new QueueNote($id,$queue_order_index,$user_login));
         }
-        else
-            return false;
     }
 
     private function _addUserToDB(QueueNote $item)
     {
         $this->_dbConnect->addToTable("queue_data",$item->toArray());
     }
+
 
     private array $_queue;
     private DBConnection $_dbConnect;

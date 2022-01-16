@@ -6,7 +6,6 @@
         { 
             $username =    filter_var($_POST['login'],FILTER_SANITIZE_STRING);
             $password =    $_POST['password']; 
-            //$hashed_password =  password_hash($_POST['password'], PASSWORD_DEFAULT); 
         
            $user = User::getUserFromDB($username);
 
