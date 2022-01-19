@@ -19,14 +19,25 @@ require_once dirname(__DIR__).'/DBManage/DBCore.php';
                 $strInd = strval($index);
                 $strLogin = $queue_note->user_login();
                 $strId = $queue_note->id();
-                $queue_list .=
+                if($_SESSION['login'] == $queue_note->user_login())
+                    $queue_list .=
                     "
                         <div class='queueNode'>
                             <p>Номер в очереди: {$strInd}</p>
                             <p>Имя аккауна: {$strLogin}</p>
                             <p>Уникальный Id: {$strId}</p>
+                            <button class='deleteNote'  id='deleteNote'>Удалить запись</button>
                         </div>
                     "; 
+                else
+                    $queue_list .=
+                        "
+                            <div class='queueNode'>
+                                <p>Номер в очереди: {$strInd}</p>
+                                <p>Имя аккауна: {$strLogin}</p>
+                                <p>Уникальный Id: {$strId}</p>
+                            </div>
+                        "; 
             }
             echo($queue_list);
         ?>

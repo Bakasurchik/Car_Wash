@@ -33,6 +33,10 @@ class DBConnection
         return $this->query("SHOW COLUMNS FROM {$table};");
     }
 
+    public function deleteFromTableByPK(string $table, string $PK_Field ,string $PK_Val )
+    {
+        return $this->query("DELETE FROM {$table} WHERE {$PK_Field}={$PK_Val};");
+    }
 
     public function addToTable(string $table, array $values)
     {

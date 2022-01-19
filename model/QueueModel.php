@@ -50,16 +50,28 @@ class Queue
 
     public function addUserToQueue(QueueNote $item)
     {
+        if($this->isUserExist($item->user_login))
+            return false;
         $result =  $this->_addUserToDB($item);
         if($result)
             array_push($this->_queue,$item);
         return $result;
     }
 
-    public function removeUserFromQueue()
+    public function removeUserFromQueue(QueueNote $item)
     {
-
+        array_splice($this->_queue, $item->queueOrderIndex());
+        $this->_deleteUserToDB($item);
     }
+
+    public function isUserExist(string $login)
+    {
+        foreach($this->_queue as &$qNote)
+            if($qNote->user_login == $login)
+                return true;
+        return false;
+    }
+
 
     public function getQueueNoteByArrayIndex(int $index)
     {
@@ -74,7 +86,7 @@ class Queue
     public function fillFromDb(string $table)
     {
         $this->_queue = array();
-        $result = $this->_dbConnect->select("*",$table,"","queue_order_index");
+        $result = $this->_dbConnect->select("*",$table,"","queue_order_index DESC");
         if(!$result)
             return false;
         //$array = mysqli_fetch_array($result);
@@ -92,8 +104,11 @@ class Queue
         return $this->_dbConnect->addToTable("queue_data",$item->toArray());
     }
 
+    private function _deleteUserToDB(QueueNote $item)
+    {
+        return $this->_dbConnect->deleteFromTableByPK("queue_data","id",$item->id());
+    }
 
     private array $_queue;
     private DBConnection $_dbConnect;
 }
-?>

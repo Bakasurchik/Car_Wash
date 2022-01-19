@@ -1,9 +1,22 @@
+//document.getElementById('deleteNote').addEventListener('click',function(){deleteFromQueue(login)},false)
+
+
+document.addEventListener("DOMContentLoaded", function(){document.getElementById("deleteNote").onclick = "deleteFromQueue(`<?php echo($_SESSION['login']); ?>`)";});
+
 function addToQueue(login)
 {
-  sendAjax(`/controller/QueueController.php?add_queue_list&login=${login}`);
+  sendAjax(`/controller/QueueController.php?add_queue_note&login=${login}`);
 }
+
+function deleteFromQueue(login)
+{
+  debugger;
+  sendAjax(`/controller/QueueController.php?delete_queue_note&login=${login}`);
+}
+
 function sendAjax(destination) 
 {
+  
   var request = new XMLHttpRequest();
   request.open('GET', destination, true);
 
@@ -38,7 +51,12 @@ function sendAjax(destination)
 
 function addNode(queueInd,accName,id)
 {
-  debugger;
+  let deleteButton = document.createElement('button');
+  deleteButton.textContent = "Удалить запись";
+  //deleteButton.addEventListener('click',function(){deleteFromQueue(accName)});
+  deleteButton.onclick = "<?php deleteFromQueue(echo($_SESSION['login'])); ?>";
+
+
   let mainCont = document.getElementById('queue_main_cont');
   let newNode = document.createElement('div');
   newNode.className = 'queueNode';

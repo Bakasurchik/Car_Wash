@@ -12,10 +12,13 @@ a {
     color: white;
 }
 
+footer {
+    flex-shrink: 0;
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;
-    
 }
 
 .queueNote {
