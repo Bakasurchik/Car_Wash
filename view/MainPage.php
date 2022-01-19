@@ -7,7 +7,7 @@
     </head>
     <div class="wrapper">
         <body>
-            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+            <div class="lds-ring"></div>
             <header>
                 <h1>
                     Бронирование очереди на автомойку    

@@ -24,7 +24,6 @@ require_once dirname(__DIR__).'/DBManage/DBCore.php';
                         <div class='queueNode'>
                             <p>Номер в очереди: {$strInd}</p>
                             <p>Имя аккауна: {$strLogin}</p>
-                            <p>Уникальный Id: {$strId}</p>
                         </div>
                     "; 
             }
