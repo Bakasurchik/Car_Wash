@@ -1,9 +1,13 @@
+
+
 <html>
     <head>
         <link rel="stylesheet" href="/css/style.css">
+        
     </head>
     <div class="wrapper">
         <body>
+            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
             <header>
                 <h1>
                     Бронирование очереди на автомойку    
@@ -22,6 +26,7 @@
             <footer>
                 Just a footer
             </footer>
+            <?php require_once dirname(__DIR__).'/view/Preloader.php'?>
         </body>
     </div>
 </html>
