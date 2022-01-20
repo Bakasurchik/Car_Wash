@@ -62,18 +62,15 @@ function addNode(queueInd,accName,id)
   newNode.className = 'queueNode';
 
   let queueIndP = document.createElement('p');
-  queueIndP.textContent = "Номер в очереди: " + queueInd;
+  queueIndP.textContent = queueInd;
   
   let accNameP = document.createElement('p');
-  accNameP.textContent = "Имя аккаунта: " + accName;
-  
-  let idP = document.createElement('p');
-  idP.textContent = "Уникальный Id: " + id;
+  accNameP.textContent = accName;
   
   newNode.appendChild(queueIndP);
   newNode.appendChild(accNameP);
-  newNode.appendChild(idP);
   mainCont.appendChild(newNode);
+  mainCont.appendChild(deleteButton);
 }
 
 function queueSizeInc()
