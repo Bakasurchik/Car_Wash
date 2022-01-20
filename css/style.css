@@ -160,7 +160,7 @@ input[type='submit'] {
     .queueNode p {
     margin: 0.5em;
     }
-    #queue_main_cont {
+    .gridqueueNode {
     display: grid;
     grid-template-columns: 25em 25em 25em 25em;
     justify-content: center;
