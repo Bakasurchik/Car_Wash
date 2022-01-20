@@ -63,8 +63,15 @@ nav > ul {
 {
     margin-right: auto;
 }
-
-
+.video{
+    display: block;
+    margin: auto;
+    width: 50%;
+    
+}
+.OTSTUP{
+    padding: 95px
+}
 .QP {
     position: relative;
     width: 50%;
@@ -225,6 +232,7 @@ input[type='submit'] {
         box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
     }
     .btn-hover.color-3 {
+        
         background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
         box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
     }
@@ -237,6 +245,7 @@ input[type='submit'] {
         box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
     }
     .btn-hover.color-6 {
+        
         background-image: linear-gradient(to right, #009245, #FCEE21, #00A8C5, #D9E021);
         box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
     }
@@ -253,8 +262,13 @@ input[type='submit'] {
         box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75)
     }
     .btn-hover.color-9 {
+        color: #FFFFFF;
+        font-family: "Gill Sans", sans-serif;
+        font-size: 22px;
+        font-weight: 100;
         background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
         box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+        
     }
     .btn-hover.color-10 {
             background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a , #FBB03B);

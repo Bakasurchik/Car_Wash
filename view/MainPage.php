@@ -17,22 +17,23 @@
             <?php require_once dirname(__DIR__).'/view/Header.php'?>
 
             <main>
-                
-                <div class="QP">
-
-                    <div style="text-align:center;">
+                <div class = "video">
                         <video  width="100%" height="auto" preload="auto" muted="muted" autoplay="autoplay" loop="loop" >
                             <source src="/video/main_page_car_background.webm" type="video/webm"></source>
                         </video>
-                    </div>
-
-                    <a href="/view/QueuePage.php"><button>Записаться</button></a>
-                    
+   
                 </div>
+                <div class="QP">
+                    <button class="btn-hover color-9"><a href="/view/QueuePage.php">Записаться</a></button>
+                
+                </div>
+                <div class="OTSTUP">
+                </div>   
+                
                 
             </main>
                 
-            <footer>
+            <footer >
                 <?php require_once dirname(__DIR__).'/view/Footer.php'?>
             </footer>
             <?php require_once dirname(__DIR__).'/view/Preloader.php'?>
