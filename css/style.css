@@ -71,7 +71,7 @@ header {
     position: relative;
     width: 50%;
 }
-.QP img {
+.QP video {
     width: 200%;
     height: auto;
 }
@@ -151,3 +151,4 @@ input[type='submit'] {
     display: flex;
     flex-direction: row;
 }
+
