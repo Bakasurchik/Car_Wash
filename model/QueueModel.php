@@ -50,7 +50,7 @@ class Queue
 
     public function addUserToQueue(QueueNote $item)
     {
-        if($this->isUserExist($item->user_login))
+        if($this->isUserExist($item->_user_login))
             return false;
         $result =  $this->_addUserToDB($item);
         if($result)
