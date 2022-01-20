@@ -2,6 +2,7 @@
 
 <html>
     <head>
+        <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/button.css">
     </head>
