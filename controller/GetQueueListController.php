@@ -18,7 +18,7 @@ require_once dirname(__DIR__).'/model/QueueModel.php';
             {
                 $queue_note = $queue->getQueueNoteByArrayIndex($i);
                 $index = $queue_note->queueOrderIndex();
-                $strInd = strval($index);
+                $strInd = strval($index) + 1;
                 $strLogin = $queue_note->_user_login;
                 $strId = $queue_note->id();
                 if($_SESSION['login'] == $queue_note->_user_login)
