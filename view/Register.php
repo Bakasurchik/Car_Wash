@@ -16,7 +16,7 @@
                         <li>
                             <label for="phone_num">Телефон</label>      
                             <br>
-                            <input name="phone_num" type="tel" min="11" max="11"  placeholder="89829255334" id="phone_num" required >
+                            <input name="phone_num" type="number" minlength="11" maxlength="11"  placeholder="89829255334" id="phone_num" required >
                         </li>
                         <li>
                             <label for="email">Email</label>     
@@ -26,12 +26,12 @@
                         <li>
                             <label>Login</label>
                             <br>
-                            <input type="text" placeholder="Login" min="3" max="20" name="login" required>
+                            <input type="text" placeholder="Login" minlength="3" maxlength="11" name="login" required>
                         </li>
                         <li>
                             <label>Пароль</label>
                             <br>
-                            <input type="password" placeholder="*******" min="5" max="40" name="password" required>
+                            <input type="password" placeholder="*******" minlength="5" maxlength="40" name="password" required>
                         </li>
                             <br>
                         <input type="submit" name="register" value="Register"> <button><a href="/view/MainPage.php">Back</a></button>
