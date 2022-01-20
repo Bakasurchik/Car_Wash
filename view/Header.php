@@ -1,6 +1,6 @@
 <script>document.title = document.getElementsByTagName("h1")[0].textContent; </script>
     
-<div class="nav">
+<nav>
                     
                     <ul class = "navButtons">
                         <button class="btn-hover color-8"><a href="/view/MainPage.php">на главную</a></button>
@@ -11,5 +11,5 @@
             <?php
                  include dirname(__DIR__).'/controller/HeaderController.php';
             ?>
-</div>
+</nav>
 
