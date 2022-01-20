@@ -34,9 +34,9 @@
                             <input type="password" placeholder="*******" minlength="5" maxlength="40" name="password" required>
                         </li>
                             <br>
-                        <input type="submit" name="register" value="Register"> 
-                        <button><a href="/view/MainPage.php">Back</a></button>
-                        <button><a href="/view/Login.php">Войти</a></button>
+                        <input class="buton" type="submit" name="register" value="Register"> 
+                        <button class="buton"><a href="/view/MainPage.php">Back</a></button>
+                        <button class="buton"><a href="/view/Login.php">Войти</a></button>
                     </ul>
                 </form>
         </body>
