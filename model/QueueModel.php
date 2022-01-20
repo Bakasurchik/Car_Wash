@@ -55,8 +55,10 @@ class Queue
 
     public function removeUserFromQueue(QueueNote $item)
     {
-        array_splice($this->_queue, $item->queueOrderIndex());
-        $this->_deleteUserToDB($item);
+        $result = $this->_deleteUserFromDB($item);
+        if($result)
+            array_splice($this->_queue, $item->queueOrderIndex());
+        return $result;
     }
 
     public function isUserExist(string $login)
@@ -81,7 +83,7 @@ class Queue
     public function fillFromDb(string $table)
     {
         $this->_queue = array();
-        $result = $this->_dbConnect->select("*",$table,"","queue_order_index DESC");
+        $result = $this->_dbConnect->select("*",$table,"","queue_order_index ASC");
         if(!$result)
             return false;
         //$array = mysqli_fetch_array($result);
@@ -99,9 +101,9 @@ class Queue
         return $this->_dbConnect->addToTable("queue_data",$item->toArray());
     }
 
-    private function _deleteUserToDB(QueueNote $item)
+    private function _deleteUserFromDB(QueueNote $item)
     {
-        return $this->_dbConnect->deleteFromTableByPK("queue_data","id",$item->id());
+        return $this->_dbConnect->deleteFromTableByPK("queue_data","user_login","'{$item->_user_login}'");
     }
 
     private array $_queue;

@@ -4,7 +4,7 @@
     if(isset($_SESSION['login']))
     {
         $login = $_SESSION['login'];
-        echo("<button class='btn-hover color-8'><a class='register'>{$login}</a></button>");
+        echo("<button class='btn-hover color-8'><a class='register' id='login'>{$login}</a></button>");
         echo("<button class='btn-hover color-8'><a href='/controller/Logout.php'> выйти </a></button>");                
     } 
     else

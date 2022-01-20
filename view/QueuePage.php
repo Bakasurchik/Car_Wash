@@ -3,7 +3,7 @@
     <head>
         <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
         <link rel="stylesheet" href="/css/style.css">
-        <script src="/js/ajax.js" type="text/javascript"></script>
+        
     </head>
     <div class="wrapper">
         <body>
@@ -20,6 +20,7 @@
             <button onclick="addToQueue(`<?php echo($_SESSION['login']); ?>`)">Записаться</button>
             <footer>
                 Just a footer
+                <script src="/js/ajax.js" type="text/javascript"></script>
             </footer>
         </body>
     </div>

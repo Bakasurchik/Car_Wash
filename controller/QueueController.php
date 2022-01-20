@@ -9,7 +9,7 @@
                 $user_login = $_GET['login'];
             $queue = new Queue(array());
             $queue->fillFromDb("queue_data");
-            $queue_order_index = $queue->queueSize();
+            $queue_order_index = $queue->queueSize() + 1;
             $queue_note = new QueueNote(0,$queue_order_index,$user_login);
             $result = $queue->addUserToQueue($queue_note);
             if($result)
@@ -41,7 +41,7 @@
             if($result)
             {
                 header('Content-type: application/json');
-                echo(json_encode(true));
+                echo(json_encode("delete"));
             }
             else
                 echo(null);

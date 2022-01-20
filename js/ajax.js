@@ -1,7 +1,17 @@
 //document.getElementById('deleteNote').addEventListener('click',function(){deleteFromQueue(login)},false)
 
 
-document.addEventListener("DOMContentLoaded", function(){document.getElementById("deleteNote").onclick = "deleteFromQueue(`<?php echo($_SESSION['login']); ?>`)";});
+
+
+document.onload = connect();
+
+function connect()
+{
+debugger;
+var vut = document.getElementById("deleteNote");
+vut.addEventListener('click',function(){deleteFromQueue(document.getElementById('login').textContent)});
+}
+
 
 function addToQueue(login)
 {
@@ -10,7 +20,6 @@ function addToQueue(login)
 
 function deleteFromQueue(login)
 {
-  debugger;
   sendAjax(`/controller/QueueController.php?delete_queue_note&login=${login}`);
 }
 
@@ -25,7 +34,6 @@ function sendAjax(destination)
     if (this.status >= 200 && this.status < 400) 
     {
       // Success!
-      debugger;
        let resp = this.response;
        let respArray = JSON.parse(resp);
        if(respArray != null)

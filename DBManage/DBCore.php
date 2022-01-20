@@ -20,7 +20,7 @@ class DBConnection
     {
         return new DBConnection("megalab.beget.tech","megalab_base","pAssword1!","megalab_base");
     } 
-    public function isConnectionSuccessful()
+    public function isConnectionSuccessful()//
     {
         if($this->_dbConnect)
             return true; 
