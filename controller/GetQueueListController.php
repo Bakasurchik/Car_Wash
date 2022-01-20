@@ -12,6 +12,7 @@ require_once dirname(__DIR__).'/model/QueueModel.php';
                             <p class='number' id='queue_size'>{$queue->queueSize()}<br></p>
                             <p>в очереди</p>
                         </div>
+                        <div>
                     ";
             for($i = 0; $i < $queue->queueSize(); $i++)
             {
@@ -38,5 +39,9 @@ require_once dirname(__DIR__).'/model/QueueModel.php';
                             </div>
                         "; 
             }
+            $queue_list .= 
+                    "
+                        </div>
+                    ";
             echo($queue_list);
         ?>
