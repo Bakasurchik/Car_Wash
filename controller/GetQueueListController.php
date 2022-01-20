@@ -24,9 +24,8 @@ require_once dirname(__DIR__).'/model/QueueModel.php';
                     $queue_list .=
                     "
                         <div class='queueNode'>
-                            <p>Номер в очереди: {$strInd}</p>
-                            <p>Имя аккауна: {$strLogin}</p>
-                            <p>Уникальный Id: {$strId}</p>
+                            <p>{$strInd}</p>
+                            <p>{$strLogin}</p>
                             <button class='deleteNote'  id='deleteNote'>Удалить запись</button>
                         </div>
                     "; 

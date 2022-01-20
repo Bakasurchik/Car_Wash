@@ -162,7 +162,7 @@ input[type='submit'] {
     }
     #queue_main_cont {
     display: grid;
-    grid-template-columns: 18em 18em 18em 18em;
+    grid-template-columns: 25em 25em 25em 25em;
     justify-content: center;
     }
 
