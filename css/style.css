@@ -153,13 +153,21 @@ button, input[type='submit'] {
 button > a {
     color: #d8d8d8;
 }
-button {
-    color: #000000;
-    font-size: 30px;
+.buton {
+    display: block;
+    margin: auto;
+    width: 22%;
+    justify-content: center;
     padding: 3px 7px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    color: #FFFFFF;
+    font-family: "Gill Sans", sans-serif;
+    font-size: 22px;
+    font-weight: 100;
+    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
 }
 
 input[type='submit'] {
