@@ -4,10 +4,10 @@
     if(isset($_SESSION['login']))
     {
         $login = $_SESSION['login'];
-        echo("<li><a class='register'>{$login}</a></li>");
-        echo("<li><a href='/controller/Logout.php'> Выйти </a></li>");                
+        echo("<button class='btn-hover color-8'><a class='register'>{$login}</a></button>");
+        echo("<button class='btn-hover color-8'><a href='/controller/Logout.php'> Выйти </a></button>");                
     } 
     else
-        echo("<li><a href='/view/Register.php'> Регистрация </a> </li>
-    <li><a href='/view/Login.php'> Войти</a> </li>"); ?>
+        echo("<button class='btn-hover color-8'><a href='/view/Register.php'> Регистрация </a> </button>
+        <button class='btn-hover color-8'><a href='/view/Login.php'> Войти</a> </button>"); ?>
 </ui>
