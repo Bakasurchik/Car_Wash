@@ -19,7 +19,6 @@
                 
                 <div class="QP">
                     <video class='center' width="100%" height="auto" preload="auto" muted="muted" autoplay="autoplay" loop="loop" poster="bg/daisy-stock-poster.jpg">
-                        <source src="/video/main_page_car_background.mp4" type="video/mp4"></source>
                         <source src="/video/main_page_car_background.webm" type="video/webm"></source>
                     </video>
 

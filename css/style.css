@@ -72,8 +72,7 @@ header {
     width: 50%;
 }
 .QP video {
-    width: 200%;
-    height: auto;
+    text-align: center;
 }
 .QP button {
     position: absolute;
