@@ -1,8 +1,9 @@
 <?php
-require_once dirname(__DIR__).'/DBManage/DBCore.php';
-    require_once dirname(__DIR__).'/model/QueueModel.php';
+//Включение удалённых файлов единожды 
+require_once dirname(__DIR__).'/DBManage/DBCore.php'; 
+require_once dirname(__DIR__).'/model/QueueModel.php';
 
-    $dbConnection = dbConnection::tryDefaultConnection();
+    $dbConnection = DBConnection::tryDefaultConnection();
             $queue = new Queue(array());
             $queue->fillFromDb("queue_data");
             $queue_list =
