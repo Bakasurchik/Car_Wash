@@ -98,7 +98,7 @@ function addNode(queueInd,accName,id)
   deleteButton.addEventListener('click',function(){deleteFromQueue(document.getElementById('login').textContent)});
 
 
-  let mainCont = document.getElementById('queue_main_cont');
+  let mainCont = document.getElementById('gridqueueNode');
   let newNode = document.createElement('div');
   newNode.className = 'queueNode';
   newNode.id = accName;
