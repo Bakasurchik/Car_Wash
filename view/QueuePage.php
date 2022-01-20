@@ -19,7 +19,7 @@
             </main>
             <button onclick="addToQueue(`<?php echo($_SESSION['login']); ?>`)">Записаться</button>
             <footer>
-                Just a footer
+                <?php require_once dirname(__DIR__).'/view/Footer.php'?>
                 <script src="/js/ajax.js" type="text/javascript"></script>
             </footer>
         </body>
