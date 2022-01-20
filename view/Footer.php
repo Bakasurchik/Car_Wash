@@ -5,17 +5,17 @@
 			<div class="footer-left">
 
 				<p class="footer-links">
-					<a class="link-1" href="#">Home</a>
+					<a class="link-1" href="https://www.meme-arsenal.com/memes/7965f82e934d9f08c08ee09915d36043.jpg">Нам</a>
 
-					<a href="#">Blog</a>
+					<a href="https://www.meme-arsenal.com/memes/7965f82e934d9f08c08ee09915d36043.jpg">нужно</a>
 
-					<a href="#">Pricing</a>
+					<a href="https://www.meme-arsenal.com/memes/7965f82e934d9f08c08ee09915d36043.jpg">53</a>
 
-					<a href="#">About</a>
+					<a href="https://www.meme-arsenal.com/memes/7965f82e934d9f08c08ee09915d36043.jpg">балла</a>
 
-					<a href="#">Faq</a>
+					<a href="https://www.meme-arsenal.com/memes/7965f82e934d9f08c08ee09915d36043.jpg">за</a>
 
-					<a href="#">Contact</a>
+					<a href="https://www.meme-arsenal.com/memes/7965f82e934d9f08c08ee09915d36043.jpg">мегалабу!</a>
 				</p>
 
 				<p>Мега лаба &copy; 2021</p>
