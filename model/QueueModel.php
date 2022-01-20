@@ -24,11 +24,6 @@ class QueueNote
         return $this->_queueOrderIndex;
     }
 
-    public function user_login()
-    {
-        return $this->_user_login;
-    }
-
 
     public int $_id;
     public int $_queueOrderIndex;
@@ -67,7 +62,7 @@ class Queue
     public function isUserExist(string $login)
     {
         foreach($this->_queue as &$qNote)
-            if($qNote->user_login == $login)
+            if($qNote->_user_login == $login)
                 return true;
         return false;
     }
