@@ -72,7 +72,8 @@ header {
     width: 50%;
 }
 .QP video {
-    text-align: center;
+    display: block;
+    margin: auto;
 }
 .QP button {
     position: absolute;

@@ -18,9 +18,12 @@
             <main>
                 
                 <div class="QP">
-                    <video class='center' width="100%" height="auto" preload="auto" muted="muted" autoplay="autoplay" loop="loop" poster="bg/daisy-stock-poster.jpg">
-                        <source src="/video/main_page_car_background.webm" type="video/webm"></source>
-                    </video>
+
+                    <div style="text-align:center;">
+                        <video  width="100%" height="auto" preload="auto" muted="muted" autoplay="autoplay" loop="loop" >
+                            <source src="/video/main_page_car_background.webm" type="video/webm"></source>
+                        </video>
+                    </div>
 
                     <a href="/view/QueuePage.php"><button>Записаться</button></a>
                     
