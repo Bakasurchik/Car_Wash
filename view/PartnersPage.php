@@ -1,5 +1,6 @@
 <html>
     <head>
+        <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
         <link rel="stylesheet" href="/css/style.css">
         <script src="/js/ajax.js" type="text/javascript"></script>
     </head>
