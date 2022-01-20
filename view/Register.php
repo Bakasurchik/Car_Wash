@@ -11,7 +11,7 @@
                         $text = $_GET["answer_text"];
                         echo("<label style='margin-left: 50px;' class='red'>{$text}</label>");
                      ?>
-                <form class="loginForm" method="post" action="/controller/RegistrerController.php">
+                <form class="loginForm" method="get" action="/controller/RegistrerController.php">
                     <ul class="verticalFormElements">                    
                         <li>
                             <label for="phone_num">Телефон</label>      
