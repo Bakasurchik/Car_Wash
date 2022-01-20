@@ -12,19 +12,19 @@ require_once dirname(__DIR__).'/model/QueueModel.php';
                             <p class='number' id='queue_size'>{$queue->queueSize()}<br></p>
                             <p>в очереди</p>
                         </div>
-                        <div class='gridqueueNode'>
+                        <div class='gridqueueNode' id='gridqueueNode'>
                     ";
             for($i = 0; $i < $queue->queueSize(); $i++)
             {
                 $queue_note = $queue->getQueueNoteByArrayIndex($i);
                 $index = $queue_note->queueOrderIndex();
-                $strInd = strval($index) + 1;
+                $strInd = strval($index);
                 $strLogin = $queue_note->_user_login;
                 $strId = $queue_note->id();
                 if($_SESSION['login'] == $queue_note->_user_login)
                     $queue_list .=
                     "
-                        <div class='queueNode'>
+                        <div class='queueNode' id={$strLogin}>
                             <p>{$strInd}</p>
                             <p>{$strLogin}</p>
                             <button class='deleteNote'  id='deleteNote'>Удалить запись</button>
@@ -33,7 +33,7 @@ require_once dirname(__DIR__).'/model/QueueModel.php';
                 else
                     $queue_list .=
                         "
-                            <div class='queueNode'>
+                            <div class='queueNode' id={$strLogin}>
                                 <p>{$strInd}</p>
                                 <p>{$strLogin}</p>
                             </div>

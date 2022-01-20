@@ -41,7 +41,7 @@
             if($result)
             {
                 header('Content-type: application/json');
-                echo(json_encode("delete"));
+                echo(json_encode($user_login));
             }
             else
                 echo(null);

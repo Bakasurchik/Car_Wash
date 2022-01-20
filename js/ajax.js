@@ -3,8 +3,8 @@
 
 
 
-document.onload = connect();
-
+document.onload = function (){connect()};
+connect();
 function connect()
 {
 debugger;
@@ -15,15 +15,15 @@ vut.addEventListener('click',function(){deleteFromQueue(document.getElementById(
 
 function addToQueue(login)
 {
-  sendAjax(`/controller/QueueController.php?add_queue_note&login=${login}`);
+  sendAjaxToAdd(`/controller/QueueController.php?add_queue_note&login=${login}`);
 }
 
 function deleteFromQueue(login)
 {
-  sendAjax(`/controller/QueueController.php?delete_queue_note&login=${login}`);
+  sendAjaxToDelete(`/controller/QueueController.php?delete_queue_note&login=${login}`);
 }
 
-function sendAjax(destination) 
+function sendAjaxToAdd(destination) 
 {
   
   var request = new XMLHttpRequest();
@@ -33,13 +33,45 @@ function sendAjax(destination)
   {
     if (this.status >= 200 && this.status < 400) 
     {
-      // Success!
+      debugger;
        let resp = this.response;
        let respArray = JSON.parse(resp);
        if(respArray != null)
        {
-        addNode(respArray['_queueOrderIndex'],respArray['_user_login'],respArray['_id']);
-        queueSizeInc();
+           addNode(respArray['_queueOrderIndex'],respArray['_user_login'],respArray['_id']);
+           queueSizeInc();
+       }
+       return resp.toString();
+    } 
+    else 
+    {
+      
+    }
+  };
+
+  request.onerror = function () 
+  {
+    
+  };
+  request.send();
+}
+
+function sendAjaxToDelete(destination)
+{
+  var request = new XMLHttpRequest();
+  request.open('GET', destination, true);
+
+  request.onload = function () 
+  {
+    if (this.status >= 200 && this.status < 400) 
+    {
+      debugger;
+       let resp = this.response;
+       let respArray = JSON.parse(resp);
+       if(respArray != null)
+       {
+          deleteNode(respArray);
+          queueSizeDec();
        }
        return resp.toString();
     } 
@@ -57,17 +89,19 @@ function sendAjax(destination)
 }
 
 
+
 function addNode(queueInd,accName,id)
 {
   let deleteButton = document.createElement('button');
   deleteButton.textContent = "Удалить запись";
   //deleteButton.addEventListener('click',function(){deleteFromQueue(accName)});
-  deleteButton.onclick = "<?php deleteFromQueue(echo($_SESSION['login'])); ?>";
+  deleteButton.addEventListener('click',function(){deleteFromQueue(document.getElementById('login').textContent)});
 
 
-  let mainCont = document.getElementById('queue_main_cont');
+  let mainCont = document.getElementById('gridqueueNode');
   let newNode = document.createElement('div');
   newNode.className = 'queueNode';
+  newNode.id = accName;
 
   let queueIndP = document.createElement('p');
   queueIndP.textContent = queueInd;
@@ -77,13 +111,27 @@ function addNode(queueInd,accName,id)
   
   newNode.appendChild(queueIndP);
   newNode.appendChild(accNameP);
+  newNode.appendChild(deleteButton);
   mainCont.appendChild(newNode);
-  mainCont.appendChild(deleteButton);
 }
+
+function deleteNode(login)
+{
+  debugger;
+   document.getElementById(login).remove();
+}
+
 
 function queueSizeInc()
 {
    let qSize = (document.getElementById('queue_size').textContent);
    qSize++;
+   document.getElementById('queue_size').textContent = qSize.toString();
+}
+
+function queueSizeDec()
+{
+   let qSize = (document.getElementById('queue_size').textContent);
+   qSize--;
    document.getElementById('queue_size').textContent = qSize.toString();
 }
