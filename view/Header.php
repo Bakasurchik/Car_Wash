@@ -5,7 +5,7 @@
                         <li><a href="/view/MainPage.php">На главную</a></li>
                         <li><a href="/view/QueuePage.php">Очередь на мойку</a></li>
                         <li><a href="/">второе</a></li>
-                        <li><a href="/">Партнеры</a></li>
+                        <li><a href="/view/PartnersPage.php">Партнеры</a></li>
                     </ul>
             <?php
                  include dirname(__DIR__).'/controller/HeaderController.php';
