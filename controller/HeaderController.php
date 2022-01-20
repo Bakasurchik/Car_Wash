@@ -5,9 +5,9 @@
     {
         $login = $_SESSION['login'];
         echo("<button class='btn-hover color-8'><a class='register'>{$login}</a></button>");
-        echo("<button class='btn-hover color-8'><a href='/controller/Logout.php'> Выйти </a></button>");                
+        echo("<button class='btn-hover color-8'><a href='/controller/Logout.php'> выйти </a></button>");                
     } 
     else
-        echo("<button class='btn-hover color-8'><a href='/view/Register.php'> Регистрация </a> </button>
-        <button class='btn-hover color-8'><a href='/view/Login.php'> Войти</a> </button>"); ?>
+        echo("<button class='btn-hover color-8'><a href='/view/Register.php'> регистрация </a> </button>
+        <button class='btn-hover color-8'><a href='/view/Login.php'> войти</a> </button>"); ?>
 </ui>

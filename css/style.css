@@ -131,14 +131,14 @@ input[type='text'],input[type='password'] {
 }
 
 button, input[type='submit'] {
-    color: black;
+    color: rgb(255, 255, 255);
     border:#381d1d 1px double;
     border-style:double;
     border-radius: 5px;
 }
 
 button > a {
-    color: black;
+    color: #d8d8d8;
 }
 
 input[type='submit'] {
@@ -154,7 +154,7 @@ input[type='submit'] {
     font-size: 30px;
     background-color: #d8d8d8;
     border-radius: 5px;
-    border: black 1px solid;
+    border: rgb(255, 255, 255) 1px solid;
     margin: 15px;
     }
     .queueNode p {
@@ -237,8 +237,12 @@ input[type='submit'] {
         box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
     }
     .btn-hover.color-8 {
+        color: #FFFFFF;
+        font-family: "Gill Sans", sans-serif;
+        font-size: 22px;
+        font-weight: 100;
         background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
-        box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+        box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75)
     }
     .btn-hover.color-9 {
         background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);

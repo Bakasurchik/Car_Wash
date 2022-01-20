@@ -3,9 +3,9 @@
 <div class="nav">
                     
                     <ul class = "navButtons">
-                        <button class="btn-hover color-8"><a href="/view/MainPage.php">На главную</a></button>
-                        <button class="btn-hover color-8"><a href="/view/QueuePage.php">Очередь на мойку</a></button>
-                        <button class="btn-hover color-8"><a href="/view/PartnersPage.php">Партнеры</a></button>
+                        <button class="btn-hover color-8"><a href="/view/MainPage.php">на главную</a></button>
+                        <button class="btn-hover color-8"><a href="/view/QueuePage.php">очередь на мойку</a></button>
+                        <button class="btn-hover color-8"><a href="/view/PartnersPage.php">партнеры</a></button>
                         
                     </ul>
             <?php
