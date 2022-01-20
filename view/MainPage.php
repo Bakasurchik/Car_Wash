@@ -30,9 +30,9 @@
                 </div>
                 
             </main>
-
+                
             <footer>
-                Just a footer
+                <?php require_once dirname(__DIR__).'/view/Footer.php'?>
             </footer>
             <?php require_once dirname(__DIR__).'/view/Preloader.php'?>
         </body>
