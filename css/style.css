@@ -150,5 +150,20 @@ input[type='submit'] {
 .queueNode {
     display: flex;
     flex-direction: row;
-}
-
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 30px;
+    background-color: #d8d8d8;
+    border-radius: 5px;
+    border: black 1px solid;
+    margin: 15px;
+    }
+    .queueNode p {
+    margin: 0.5em;
+    }
+    #queue_main_cont {
+    display: grid;
+    grid-template-columns: 18em 18em 18em 18em;
+    justify-content: center;
+    }

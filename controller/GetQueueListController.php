@@ -33,9 +33,8 @@ require_once dirname(__DIR__).'/DBManage/DBCore.php';
                     $queue_list .=
                         "
                             <div class='queueNode'>
-                                <p>Номер в очереди: {$strInd}</p>
-                                <p>Имя аккауна: {$strLogin}</p>
-                                <p>Уникальный Id: {$strId}</p>
+                                <p>{$strInd}</p>
+                                <p>{$strLogin}</p>
                             </div>
                         "; 
             }
