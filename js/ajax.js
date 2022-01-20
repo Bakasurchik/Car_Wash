@@ -72,6 +72,7 @@ function sendAjaxToDelete(destination)
        {
           deleteNode(respArray);
           queueSizeDec();
+          reorderNotes();
        }
        return resp.toString();
     } 
@@ -104,6 +105,7 @@ function addNode(queueInd,accName,id)
   newNode.id = accName;
 
   let queueIndP = document.createElement('p');
+  queueIndP.id = 'ind';
   queueIndP.textContent = queueInd;
   
   let accNameP = document.createElement('p');
@@ -119,6 +121,22 @@ function deleteNode(login)
 {
   debugger;
    document.getElementById(login).remove();
+}
+
+function reorderNotes()
+{
+  debugger;
+  let $elems = document.getElementById('gridqueueNode').childNodes;
+  let i = 1;
+  $elems.forEach(element => {
+    if(element != null && element.childNodes.item('#ind') != null)
+    {
+      debugger;
+      element.childNodes.item('#ind').innerHTML = toString(i);
+      i++;
+    }
+    
+  });
 }
 
 

@@ -73,7 +73,11 @@ class DBConnection
         return $this->select("*",$tableName);
     }
 
-    
+    public function updateValues()
+    {
+        
+    }
+
 
     public function select(string $selector,string $tableName, string $condition = "", string $orderBy = "")
     {

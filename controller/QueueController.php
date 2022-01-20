@@ -5,6 +5,7 @@
     $dbConnection = dbConnection::tryDefaultConnection();
         if ( isset( $_GET['add_queue_note'] ) ) 
         { 
+            $user_login = "";
             if(isset( $_GET['login']))
                 $user_login = $_GET['login'];
             $queue = new Queue(array());
@@ -31,13 +32,12 @@
 
         if ( isset( $_GET['delete_queue_note'] ) ) 
         { 
+            $user_login = "";
             if(isset( $_GET['login']))
                 $user_login = $_GET['login'];
             $queue = new Queue(array());
             $queue->fillFromDb("queue_data");
-            $queue_order_index = $queue->queueSize();
-            $queue_note = new QueueNote(0,$queue_order_index,$user_login);
-            $result = $queue->removeUserFromQueue($queue_note);
+            $result = $queue->removeUserFromQueue($user_login);
             if($result)
             {
                 header('Content-type: application/json');

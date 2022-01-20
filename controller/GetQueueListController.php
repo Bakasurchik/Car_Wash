@@ -25,7 +25,7 @@ require_once dirname(__DIR__).'/model/QueueModel.php';
                     $queue_list .=
                     "
                         <div class='queueNode' id={$strLogin}>
-                            <p>{$strInd}</p>
+                            <p id='ind'>{$strInd}</p>
                             <p>{$strLogin}</p>
                             <button class='deleteNote'  id='deleteNote'>Удалить запись</button>
                         </div>
@@ -34,7 +34,7 @@ require_once dirname(__DIR__).'/model/QueueModel.php';
                     $queue_list .=
                         "
                             <div class='queueNode' id={$strLogin}>
-                                <p>{$strInd}</p>
+                                <p id='ind'>{$strInd}</p>
                                 <p>{$strLogin}</p>
                             </div>
                         "; 

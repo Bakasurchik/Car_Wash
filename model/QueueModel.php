@@ -24,6 +24,23 @@ class QueueNote
         return $this->_queueOrderIndex;
     }
 
+    static public function getNoteFromDB(string $login)
+    {
+        $dbConnection = DBConnection::tryDefaultConnection();
+        $result = $dbConnection->select("*","queue_data","(queue_data.user_login LIKE '{$login}')");
+        if(!$result)
+            return null;
+        $row = mysqli_fetch_array($result);
+        if($row && count($row))
+        {
+            $id = $row['id'];
+            $ind = $row['queue_order_index'];
+            $user_login = $row['user_login'];
+            return new QueueNote($id,$ind,$user_login);
+        }
+        else
+            return null;
+    }
 
     public int $_id;
     public int $_queueOrderIndex;
@@ -49,15 +66,22 @@ class Queue
             return false;
         $result =  $this->_addUserToDB($item);
         if($result)
+        {
             array_push($this->_queue,$item);
+            $this->reorderIndexes();
+        }
         return $result;
     }
 
-    public function removeUserFromQueue(QueueNote $item)
+    public function removeUserFromQueue(string $login)
     {
-        $result = $this->_deleteUserFromDB($item);
+        $item = QueueNote::getNoteFromDB($login);
+        $result = $this->_deleteUserFromDB($login);
         if($result)
-            array_splice($this->_queue, $item->queueOrderIndex());
+        {
+            unset($this->_queue[$item->queueOrderIndex()-1]);
+            $this->reorderIndexes();
+        }
         return $result;
     }
 
@@ -69,6 +93,19 @@ class Queue
         return false;
     }
 
+    public function reorderIndexes()
+    {
+        $i = 1;
+        $res = true;
+        foreach($this->_queue as &$it)
+        {
+            $it->_queueOrderIndex = $i;
+            $sql = "UPDATE queue_data SET queue_order_index='{$i}' WHERE user_login='$it->_user_login';";
+            $res &= $this->_dbConnect->query($sql);
+            $i++;
+        }
+        return $res;
+    }
 
     public function getQueueNoteByArrayIndex(int $index)
     {
@@ -98,12 +135,14 @@ class Queue
 
     private function _addUserToDB(QueueNote $item)
     {
-        return $this->_dbConnect->addToTable("queue_data",$item->toArray());
+        $res = $this->_dbConnect->addToTable("queue_data",$item->toArray());
+        return $res;
     }
 
-    private function _deleteUserFromDB(QueueNote $item)
+    private function _deleteUserFromDB(string $login)
     {
-        return $this->_dbConnect->deleteFromTableByPK("queue_data","user_login","'{$item->_user_login}'");
+        $res = $this->_dbConnect->deleteFromTableByPK("queue_data","user_login","'{$login}'");
+        return $res;
     }
 
     private array $_queue;
