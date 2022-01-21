@@ -186,6 +186,13 @@ input[type='submit'] {
     border: rgb(255, 255, 255) 1px solid;
     margin: 15px;
     }
+    .queueNode button {
+        font-family: "Gill Sans", sans-serif;
+        font-size: 22px;
+        font-weight: 100;
+        background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+        box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+    }
     .queueNode p {
     margin: 0.5em;
     }
